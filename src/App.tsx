@@ -52,9 +52,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [octokit, setOctokit] = useState<any>(null);
   const [llmApiKey, setLlmApiKey] = useState<string>("");
-
-
-
+  
   /**
    * Processes the files by fetching their content, getting GPT response, and posting comments.
    * @param {any[]} files - The list of files to process.
@@ -149,7 +147,6 @@ const App = () => {
       setReviewStatus("An error occurred while fetching AI response.")
     }
   };
-
 
   return (
     <>
