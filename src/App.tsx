@@ -7,7 +7,7 @@ import { Octokit } from '@octokit/core';
 
 // Initialize Octokit instance with personal access token
 const octokit = new Octokit({
-  auth: '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'
+  auth: ''
 });
 
 // Convert GitHub URL to API URL parameters

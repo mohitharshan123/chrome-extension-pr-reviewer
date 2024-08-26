@@ -6,5 +6,10 @@
     "action": {
       "default_popup": "index.html",
       "default_icon": "github-logo.png"
-    }
+    },
+    "permissions":["tabs", "scripting"],
+    "host_permissions":[
+        "http://*/*",
+        "https://*/*"
+    ]
   }
