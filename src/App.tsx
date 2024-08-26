@@ -70,7 +70,6 @@ const App = () => {
         const commentBody = gptResponse?.choices?.[0]?.message?.content || '';
 
         if (commentBody) {
-          console.log(octokit)
           await octokit.request(`POST /repos/${user}/${repo}/pulls/${prNumber}/comments`, {
             commit_id: "f36b14707cd115d3765551d8976e9664cf74bbd3", // Use the actual commit ID from the file
             body: commentBody,
