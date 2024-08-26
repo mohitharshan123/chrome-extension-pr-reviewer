@@ -4,6 +4,7 @@ import { Octokit } from '@octokit/core';
 import './App.css';
 
 const EXTENSIONS_TO_EXCLUDE = ['.lock', '.tmp', '.bak'];
+const GPT_API_URL = 'https://api.aimlapi.com/chat/completions';
 
 /**
  * Converts a GitHub URL to API URL parameters.
@@ -52,7 +53,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [octokit, setOctokit] = useState<any>(null);
   const [llmApiKey, setLlmApiKey] = useState<string>("");
-  
+
   /**
    * Processes the files by fetching their content, getting GPT response, and posting comments.
    * @param {any[]} files - The list of files to process.
@@ -120,7 +121,6 @@ const App = () => {
    * @returns {Promise<any>} - The response from the GPT API.
    */
   const callGptApi = async (decodedContent: string): Promise<any> => {
-    const gptUrl = 'https://api.aimlapi.com/chat/completions';
     const requestData = {
       model: 'gpt-4o',
       messages: [
@@ -133,7 +133,7 @@ const App = () => {
       stream: false
     };
     try {
-      const response = await fetch(gptUrl, {
+      const response = await fetch(GPT_API_URL, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${llmApiKey}`, // Replace with your actual API key
@@ -157,7 +157,6 @@ const App = () => {
             id="githubKey"
             type="password"
             onChange={(e) => {
-              console.log(e.target.value)
               setOctokit(new Octokit({
                 auth: e.target.value
               }))
