@@ -52,9 +52,3 @@ export default tseslint.config({
 
 
 
-
-
-
-<img width="558" alt="Screenshot 2024-08-29 at 9 45 50 PM" src="https://github.com/user-attachments/assets/a23600f6-f300-4a90-86de-16f04095402d">
-
-
